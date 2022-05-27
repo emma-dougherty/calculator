@@ -30,6 +30,10 @@ function App() {
     if(!runningTotal.toString().includes("."))
     setRunningTotal(runningTotal + ".")
   }
+  
+  // const handleDivideByZero = () => {
+  //   if
+  // }
 
   const clearClick = () => {
     if (runningTotal === 0) {
@@ -94,9 +98,13 @@ function App() {
 
   const divide = (number) => {
     let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+    if (number === 0) {
+    setRunningTotal("Not a number");
+    setCalculatedTotal("Not a number");
+    } else {
     setRunningTotal(calculatedNumber);
     setCalculatedTotal(calculatedNumber);
-  }
+  }}
 
 
   return (

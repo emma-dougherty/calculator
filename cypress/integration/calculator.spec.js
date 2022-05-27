@@ -50,14 +50,25 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '0.25')
   })
 
-  it ('should have an output as expected for decimal numbers', () => {
+  it ('should have an output as expected for very large numbers', () => {
+    cy.get('#number2').click()
+    cy.get('#number5').click()
+    cy.get('#operator-multiply').click()
     cy.get('#number1').click()
-    cy.get('#operator-divide').click()
-    cy.get('#number4').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
     cy.get('#operator-equals').click()
-    cy.get('.display').should('contain', '0.25')
+    cy.get('.display').should('contain', '25000')
+  })
+
+  it ('should display "Not a number" when a number is divided by zero', () => {
+    cy.get('#number3').click()
+    cy.get('#operator-divide').click()
+    cy.get('#number0').click()
+    cy.get('#operator-equals').click()
+    cy.get('.display').should('contain', 'Not a number')
   })
 
   })
 
-  // , negative, decimals and very large 

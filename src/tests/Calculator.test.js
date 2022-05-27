@@ -121,5 +121,6 @@ describe('Calculator', () => {
     let runningTotal = container.getByTestId('running-total');
     expect(runningTotal.textContent).toEqual('8');
   })
+
 })
 
