@@ -18,7 +18,7 @@ describe("Calculator", () => {
 
   it("should be able to carry out addition operations and update the running total shown on the display", () => {
     cy.get("#number4").click();
-    cy.get("#operator-add").click();
+    cy.get("#operator_add").click();
     cy.get("#number6").click();
     cy.get("#operator-equals").click();
     cy.get(".display").should("contain", "10");
